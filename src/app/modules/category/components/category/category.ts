@@ -38,7 +38,7 @@ export class Category implements OnInit{
           dataCategory.push(element);
        });
 
-       this.dataSource = new MatTableDataSource<CategoryElement>(dataCategory);
+       this.dataSource.data = dataCategory;
     }
   }
 }
