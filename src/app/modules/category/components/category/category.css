@@ -1,0 +1,104 @@
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.category-container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px 40px;
+    box-sizing: border-box;
+}
+
+/* ===== HEADER SUPERIOR ===== */
+.page-header {
+    margin-bottom: 25px;
+}
+
+.page-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+    color: #2c3e50;
+}
+
+.subtitle {
+    margin-top: 5px;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+/* ===== TARJETA DE CONTENIDO ===== */
+.content-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== TOOLBAR ===== */
+.toolbar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 20px;
+}
+
+.toolbar button {
+    margin-left: auto;
+}
+
+/* ===== BUSCADOR ===== */
+mat-form-field {
+    width: 350px;
+}
+
+/* ===== BOTÓN DASHBOARD ===== */
+.btn-dashboard {
+    background-color: #3f51b5 !important;
+    color: white !important;
+    font-weight: 500;
+    padding: 8px 22px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.btn-dashboard:hover {
+    background-color: #2f3c9e !important;
+    transform: translateY(-2px);
+}
+
+/* ===== TABLA ===== */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th.mat-header-cell {
+    background-color: #f4f6fa;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+td.mat-cell {
+    font-size: 14px;
+}
+
+/* Hover fila */
+tr.mat-row {
+    transition: background 0.2s ease;
+}
+
+tr.mat-row:hover {
+    background-color: #f1f3fb;
+}
+
+/* ===== BOTONES ACCIÓN ===== */
+.edit-btn {
+    color: #3f51b5;
+}
+
+.delete-btn {
+    color: #e53935;
+}

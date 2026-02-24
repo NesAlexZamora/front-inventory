@@ -1,0 +1,81 @@
+<div class="category-container">
+
+    <!-- HEADER -->
+    <div class="page-header">
+        <h1>Listado de Categorías</h1>
+        <p class="subtitle">Administra las categorías del sistema</p>
+    </div>
+
+    <!-- CARD CONTENIDO -->
+    <div class="content-card">
+
+        <!-- BUSCADOR Y BOTÓN -->
+        <div class="toolbar">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Buscar categoría</mat-label>
+                <input matInput #input (keyup)="dataSource.filter = input.value.trim().toLowerCase()">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+
+            <button mat-raised-button class="btn-dashboard">
+                <mat-icon>add</mat-icon>
+                Nueva Categoría
+            </button>
+
+        </div>
+
+        <!-- TABLA -->
+        <div class="table-container">
+
+            <table mat-table [dataSource]="dataSource">
+
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef> N° </th>
+                    <td mat-cell *matCellDef="let element">
+                        {{ element.id }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                    <td mat-cell *matCellDef="let element">
+                        {{ element.name }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef> Descripción </th>
+                    <td mat-cell *matCellDef="let element">
+                        {{ element.descripcion }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                    <td mat-cell *matCellDef="let element">
+
+                        <!-- Botón Editar -->
+                        <button mat-icon-button class="edit-btn" matTooltip="Editar" matTooltipPosition="above">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+
+                        <!-- Botón Eliminar -->
+                        <button mat-icon-button class="delete-btn" matTooltip="Eliminar" matTooltipPosition="above">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>
+
+        </div>
+
+    </div>
+
+</div>
