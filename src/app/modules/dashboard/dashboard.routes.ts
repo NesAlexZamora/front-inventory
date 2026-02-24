@@ -1,18 +1,21 @@
 import { Routes } from '@angular/router';
 import { Home } from './components/home/home';
 import { Dashboard } from './pages/dashboard';
+import { Sidenav } from '../shared/components/sidenav/sidenav';
 
 export const DASHBOARD_ROUTES: Routes = [
-  {
+{
     path: '',
-    component: Dashboard
-  },
-  {
-    path: 'home',
-    component: Home
-  },
-  {
-    path: 'dashboard',
-    component: Dashboard
-  },
+    component: Sidenav,
+    children: [
+      {
+        path: '',
+        component: Home
+      },
+      {
+        path: 'home',
+        component: Home
+      }
+    ]
+  }
 ];

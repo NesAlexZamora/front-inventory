@@ -1,0 +1,69 @@
+<div class="dashboard-container" [class.is-mobile]="mobileQuery.matches">
+
+  <!-- NAVBAR -->
+  <mat-toolbar color="primary" class="toolbar dashboard-toolbar">
+
+    <button mat-icon-button class="menu-btn" (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span class="app-name">S-Inventory</span>
+
+    <div class="spacer"></div>
+
+    <div class="right">
+      <button mat-icon-button class="icon-btn">
+        <mat-icon>help_outline</mat-icon>
+      </button>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="icon-btn">
+        <mat-icon>person_outline</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Cerrar sesión</span>
+        </button>
+      </mat-menu>
+    </div>
+
+  </mat-toolbar>
+
+  <!-- SIDENAV -->
+  <mat-sidenav-container class="sidenav-container">
+
+    <mat-sidenav #snav class="sidenav" [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches" fixedTopGap="64" opened>
+
+      <!-- PERFIL -->
+      <div class="profile-card">
+        <div class="avatar">NZ</div>
+
+        <div class="user-info">
+          <h3>Nestor Zamora</h3>
+          <p>nestor@gmail.com</p>
+        </div>
+      </div>
+
+      <mat-divider></mat-divider>
+
+     <mat-nav-list>
+  <a mat-list-item *ngFor="let nav of menuNav" [routerLink]="nav.route">
+    <mat-icon matListItemIcon>{{ nav.icon }}</mat-icon>
+    <span matListItemTitle>{{ nav.name }}</span>
+  </a>
+</mat-nav-list>
+
+
+
+    </mat-sidenav>
+
+    <!-- CONTENIDO -->
+    <mat-sidenav-content class="content">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+
+</div>
