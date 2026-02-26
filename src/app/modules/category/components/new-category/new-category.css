@@ -1,0 +1,113 @@
+/* ===== CONTENEDOR GENERAL DEL DIALOG ===== */
+
+::ng-deep .mat-mdc-dialog-container {
+    border-radius: 16px !important;
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+
+/* ===== TITULO ===== */
+
+.dialog-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 20px;
+    margin: 0;
+    background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+
+/* ===== CONTENIDO ===== */
+
+.dialog-content {
+    padding: 30px 35px 10px 35px !important;
+}
+
+.category-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+/* ===== INPUTS ===== */
+
+.full-width {
+    width: 100%;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+
+/* ===== ACCIONES (BOTONES) ===== */
+
+mat-dialog-actions {
+    padding: 20px 30px 25px 30px !important;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    background-color: #fafafa;
+    border-top: 1px solid #e0e0e0;
+}
+
+
+/* ===== BOTON CANCELAR ===== */
+
+button[mat-stroked-button] {
+    border-radius: 8px;
+    padding: 6px 18px;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+button[mat-stroked-button]:hover {
+    background-color: #ffebee;
+}
+
+
+/* ===== BOTON GUARDAR ===== */
+
+button[mat-raised-button] {
+    border-radius: 8px;
+    padding: 6px 20px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(63, 81, 181, 0.3);
+    transition: all 0.2s ease-in-out;
+}
+
+button[mat-raised-button]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(63, 81, 181, 0.4);
+}
+
+
+/* ===== ICONOS ===== */
+
+mat-icon {
+    font-size: 18px;
+    margin-right: 4px;
+}
+
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 600px) {
+    .dialog-content {
+        padding: 20px;
+    }
+
+    mat-dialog-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    mat-dialog-actions button {
+        width: 100%;
+    }
+}

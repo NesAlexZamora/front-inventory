@@ -1,0 +1,37 @@
+<h2 mat-dialog-title class="dialog-title">
+    Nueva Categoría
+</h2>
+
+<mat-dialog-content class="dialog-content">
+
+    <form class="category-form" [formGroup]="categoryForm">
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput required formControlName="name">
+            <mat-icon matSuffix>label</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput rows="4" required formControlName="descripcion"></textarea>
+            <mat-icon matSuffix>description</mat-icon>
+        </mat-form-field>
+
+    </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+
+    <button mat-stroked-button color="warn" (click)="onCancel()" >
+        <mat-icon>close</mat-icon>
+        Cancelar
+    </button>
+
+    <button mat-raised-button color="primary" (click)="onSave()" [disabled]="categoryForm.invalid">
+        <mat-icon>save</mat-icon>
+        Guardar
+    </button>
+
+</mat-dialog-actions>

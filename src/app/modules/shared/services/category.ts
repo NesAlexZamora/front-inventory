@@ -19,5 +19,15 @@ export class CategoryS {
     const endpoint = `${base_url}/categories`;
     return this.http.get(endpoint);
   }
+
+
+  /**
+   * Post de categoria - agregar
+   */
+
+  saveCategories(body: any){
+    const endpoint = `${base_url}/categories`;
+    return this.http.post(endpoint,body);
+  }
   
 }
