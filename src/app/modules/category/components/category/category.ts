@@ -14,13 +14,8 @@ import { Confirm } from '../../../shared/components/confirm/confirm';
   templateUrl: './category.html',
   styleUrl: './category.css',
 })
-export class Category implements OnInit,AfterViewInit {
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-   
+export class Category implements OnInit {
   
-  ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-  }
 
   public dialog = inject(MatDialog);
   private snackBar = inject(MatSnackBar);
@@ -34,8 +29,8 @@ export class Category implements OnInit,AfterViewInit {
 
   displayedColumns: string[] = ['id', 'name', 'description', 'actions'];
   dataSource = new MatTableDataSource<CategoryElement>();
-
-
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
 
   getCategories(): void {
     this.categoryService.getCategories().subscribe((data: any) => {
@@ -56,6 +51,7 @@ export class Category implements OnInit,AfterViewInit {
       });
 
       this.dataSource.data = dataCategory;
+      this.dataSource.paginator = this.paginator;
     }
   }
 
