@@ -111,6 +111,15 @@ export class Category implements OnInit,AfterViewInit {
       }
     });
   }
+
+  buscar(termino: string){
+    if (termino.length === 0) {
+      return this.getCategories();
+    }
+    this.categoryService.getCategoriesByid(termino).subscribe((resp: any )=> {
+      this.processCategoriesResponse(resp);
+    })
+  }
 }
 
 
