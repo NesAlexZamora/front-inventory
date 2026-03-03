@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NewCategory } from '../new-category/new-category';
 import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
 import { MatPaginator } from '@angular/material/paginator';
+import { Confirm } from '../../../shared/components/confirm/confirm';
 
 @Component({
   selector: 'app-category',
@@ -91,6 +92,22 @@ export class Category implements OnInit,AfterViewInit {
         this.getCategories();
       } else if (result == 2) {
         this.openSnackBar("Se produjo un error al actualizar categoria", "Error");
+      }
+    });
+  }
+
+  delete(id: any){
+    const dialogRef = this.dialog.open(Confirm, {
+      data:{id: id},
+      width: '450px'
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result == 1) {
+        this.openSnackBar("Categoria Eliminada", "Exito");
+        this.getCategories();
+      } else if (result == 2) {
+        this.openSnackBar("Se produjo un error al eliminar categoria", "Error");
       }
     });
   }

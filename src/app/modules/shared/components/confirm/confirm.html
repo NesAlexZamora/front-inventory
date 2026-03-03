@@ -1,0 +1,27 @@
+<h2 mat-dialog-title class="dialog-title">
+    <mat-icon class="warning-icon">warning</mat-icon>
+    Confirmación
+</h2>
+
+<div mat-dialog-content class="dialog-content">
+    <br>
+    <p class="message">
+        ¿Estás seguro de eliminar este registro?
+    </p>
+    <p class="sub-message">
+        Esta acción no se puede deshacer.
+    </p>
+</div>
+
+<div mat-dialog-actions class="dialog-actions">
+    <button mat-stroked-button class="btn-cancel" (click)="onNoClick()">
+        <mat-icon>close</mat-icon>
+        Cancelar
+    </button>
+
+    <button mat-raised-button color="warn" class="btn-delete" 
+            (click)="delete()" cdkFocusInitial>
+        <mat-icon>delete</mat-icon>
+        Eliminar
+    </button>
+</div>

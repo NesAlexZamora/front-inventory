@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material-module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { Confirm } from './components/confirm/confirm';
 
 
 
@@ -12,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     MaterialModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    Confirm
   ]
 })
 export class SharedModule { }
