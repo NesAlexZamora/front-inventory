@@ -27,7 +27,7 @@ export class Category implements OnInit {
     this.getCategories();
   }
 
-  displayedColumns: string[] = ['id', 'name', 'description', 'actions'];
+  displayedColumns: string[] = [ 'index','name', 'description', 'actions'];
   dataSource = new MatTableDataSource<CategoryElement>();
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -108,11 +108,20 @@ export class Category implements OnInit {
     });
   }
 
-  buscar(termino: string){
+  /* buscar(termino: string){
     if (termino.length === 0) {
       return this.getCategories();
     }
     this.categoryService.getCategoriesByid(termino).subscribe((resp: any )=> {
+      this.processCategoriesResponse(resp);
+    })
+  } */
+
+  buscarName(termino: string){
+    if (termino.length === 0) {
+      return this.getCategories();
+    }
+    this.categoryService.getCategoriesByName(termino).subscribe((resp: any )=> {
       this.processCategoriesResponse(resp);
     })
   }

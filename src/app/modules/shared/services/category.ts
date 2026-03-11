@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 const base_url = "http://localhost:8080/api/v1";
@@ -8,14 +8,14 @@ const base_url = "http://localhost:8080/api/v1";
 })
 export class CategoryS {
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient) { }
 
 
   /**
    *  get all categories
    * @returns 
    */
-  getCategories(){
+  getCategories() {
     const endpoint = `${base_url}/categories`;
     return this.http.get(endpoint);
   }
@@ -25,37 +25,42 @@ export class CategoryS {
    * Post de categoria - agregar
    */
 
-  saveCategories(body: any){
+  saveCategories(body: any) {
     const endpoint = `${base_url}/categories`;
-    return this.http.post(endpoint,body);
+    return this.http.post(endpoint, body);
   }
 
   /**
    *  update categories
    */
 
-  updateCategories(body: any, id: any){
+  updateCategories(body: any, id: any) {
     const endpoint = `${base_url}/categories/${id}`;
-    return this.http.put(endpoint,body);
+    return this.http.put(endpoint, body);
   }
 
   /**
    *  delete categories
    */
 
-  deleteCategories( id: any){
+  deleteCategories(id: any) {
     const endpoint = `${base_url}/categories/${id}`;
     return this.http.delete(endpoint);
   }
 
-   /**
-   *  buscar categories
-   */
+  /**
+  *  buscar categories
+  */
 
-  getCategoriesByid( id: any){
+  getCategoriesByid(id: any) {
     const endpoint = `${base_url}/categories/${id}`;
     return this.http.get(endpoint);
   }
-  
-  
+
+  getCategoriesByName(name: string) {
+    const params = new HttpParams().set('name', name);
+    return this.http.get(`${base_url}/categories/search`, { params });
+  }
+
+
 }
